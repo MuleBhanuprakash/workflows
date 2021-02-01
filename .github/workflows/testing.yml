@@ -12,7 +12,7 @@ on:
   #   schedule:
   #     -cron: '*/15 * * * *'
 
-  jobs:
+jobs:
     build:
       runs-on: ubuntu-latest
 
