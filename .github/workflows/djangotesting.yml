@@ -29,8 +29,11 @@ jobs:
       run: |
         python manage.py test
     - name: Coverage
-      run: coverage -omit=*/venv*. manage.py test
+      run: |
+        pip install coverage
+        coverage -omit=*/venv*. manage.py test
     - name: Coverage html report
-      run: coverage html
+      run: |
+        coverage html
     - name: Lint with flake8
       run: flake8
