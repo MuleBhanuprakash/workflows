@@ -21,8 +21,6 @@ on:
 
       - name: python 3.8
         uses: actions/checkout@v2
-          with:
-            python-version: 3.8
 
       - name: Install Dependencies
         run:
