@@ -7,11 +7,14 @@ from .models import Registration
 
 class RegistrationTest(TestCase):
     def setup(self):
-        d = Registration.objects.create()
         self.Username = "bhanu06"
         self.Password = "bhanu06"
         self.Email = "bhanu06@email.com"
         self.Firstname = "M"
         self.Lastname = "Bhanu"
         self.Location = "wanaparthy"
-        assertEqual = (isinstance(self.Username, Registration.Username))
+
+    def test_model(self):
+        d = self()
+        self.assertTrue = (isinstance(d, Registration))
+        self.assertEqual = (str(d), 'bhanu06')
