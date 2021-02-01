@@ -1,1 +1,39 @@
+name: Django Testing
+
+on:
+  push:
+    branches:
+      -main
+
+  pull_request:
+    branches:
+      -main
+  # on:
+  #   schedule:
+  #     -cron: '*/15 * * * *'
+
+  jobs:
+    build:
+      runs-on: ubuntu-latest
+
+      step:
+        - uses: actions/checkout@v2
+        - name: python 3.8
+          uses: actions/checkout@v2
+          with:
+            python-version: 3.8
+        - name: Install Dependencies
+          run:
+            pip install -r requirements.txt
+        - name: lint with flake8
+          run:
+            pip install flake8
+            flake8
+        - name: Coverage Report
+          run:
+            coverage run --omit=*/venv/* manage.py test
+            coverage html
+            coverage report
+        - name: Django Testing
+          run: py manage.py test
 
