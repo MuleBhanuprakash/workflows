@@ -28,12 +28,5 @@ jobs:
     - name: Run Tests
       run: |
         python manage.py test
-    - name: Coverage
-      run: |
-        pip install coverage
-        coverage manage.py test
-    - name: Coverage html report
-      run: |
-        coverage html
     - name: Lint with flake8
       run: flake8
