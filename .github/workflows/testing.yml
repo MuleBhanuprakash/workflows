@@ -17,35 +17,29 @@ on:
       runs-on: ubuntu-latest
 
       steps:
-        - uses: actions/checkout@v2
+      - uses: actions/checkout@v2
 
-        - name: python 3.8
-          uses: actions/checkout@v2
+      - name: python 3.8
+        uses: actions/checkout@v2
           with:
             python-version: 3.8
 
-        - name: Install Dependencies
-          run:
-            pip install -r requirements.txt
-
-        - name: migrations
-          run:
-            py manage.py makemigrations
-            py manage.py migrate
-            py manage.py sqlmigrate app1 0001
+      - name: Install Dependencies
+        run:
+          pip install -r requirements.txt
 
 
-        - name: lint with flake8
-          run:
-            pip install flake8
-            flake8
+      - name: lint with flake8
+        run:
+          pip install flake8
+          flake8
 
-        - name: Coverage Report
-          run:
-            coverage run --omit=*/venv/* manage.py test
-            coverage html
-            coverage report
+      - name: Coverage Report
+        run:
+          coverage run --omit=*/venv/* manage.py test
+          coverage html
+          coverage report
 
-        - name: Django Testing
-          run:
-            py manage.py test
+      - name: Django Testing
+        run:
+          py manage.py test
